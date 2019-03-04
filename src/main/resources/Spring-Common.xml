@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="OutputHelper" class="com.yiibai.output.OutputHelper">
+		<property name="outputGenerator" ref="CsvOutputGenerator" />
+	</bean>
+	
+	<bean id="CsvOutputGenerator" class="com.yiibai.output.impl.CsvOutputGenerator" />
+	<bean id="JsonOutputGenerator" class="com.yiibai.output.impl.JsonOutputGenerator" />
+	
+	<!-- no – 缺省情况下，自动配置是通过“ref”属性手动设定  -->
+	<bean id="customer" class="com.yiibai.common.Customer">
+          <property name="person" ref="person" />
+	</bean>
+	<bean id="person" class="com.yiibai.common.Person" />
+
+</beans>
